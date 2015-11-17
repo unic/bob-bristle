@@ -1,0 +1,6 @@
+paket.exe
+packages
+docs-generated
+temp
+
+TestResults.xml
