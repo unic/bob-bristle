@@ -19,4 +19,5 @@ Get-ChildItem -Path $PSScriptRoot\*.ps1 -Exclude *.tests.ps1 | Foreach-Object{ .
 Export-ModuleMember -Function * -Alias *
 
 $VerbosePreference = "Continue"
+[System.Reflection.Assembly]::LoadFrom((ResolvePath "LibGit2Sharp" "lib\net40\LibGit2Sharp.dll"))
 [System.Reflection.Assembly]::LoadFrom((ResolvePath "GitVersion" "lib\net45\GitVersionCore.dll"))
