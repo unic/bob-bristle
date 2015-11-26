@@ -2,8 +2,6 @@
 paket.exe
 packages
 docs-generated
-output
 temp
 
-GitVersionConfig.yaml
 TestResults.xml
