@@ -187,26 +187,5 @@ function Invoke-FinishRelease
         Write-Output "   [Action] Remove remote branch '$($remoteCurrentBranch.Name)' from repository"
         #$repo.Branches.Remove($remoteCurrentBranch)
         $repo.Network.Push($remoteOrigin, ":$($currentBranch.CanonicalName)", $pushOptions, $signature)
-        
-        
-        <#
-        [GitVersion.Logger]::SetLoggers([Action[string]]{},[Action[string]]{},[Action[string]]{})
-
-        $gitFilesystem = new-object GitVersion.Helpers.FileSystem
-
-        $gitVersionConfig = [GitVersion.ConfigurationProvider]::Provide($repoDir, $gitFilesystem)
-        $gitContext = New-Object GitVersion.GitVersionContext $repo, $gitVersionConfig
-
-$gitContext.CurrentBranch
-$gitContext.CurrentBranch.Name
-
-        if (Test-ReleaseHotfixBranch -Branch $gitContext.CurrentBranch.Name) {
-            "On branch to continue"
-        }
-
-        $versionFinder = New-Object GitVersion.GitVersionFinder
-        $Version = $versionFinder.FindVersion($gitContext).ToString("j")
-$Version
-#>
     }
 }
