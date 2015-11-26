@@ -7,7 +7,7 @@
       <owners>Unic AG</owners>
       <iconUrl>https://www.unic.com/img/unic-logo.png</iconUrl>
       <requireLicenseAcceptance>false</requireLicenseAcceptance>
-      <description>Bristle finishes releases otr hotfixes.</description>
+      <description>Bristle finishes releases or hotfixes.</description>
     </metadata>
     <files>
         <file src="src\**" />

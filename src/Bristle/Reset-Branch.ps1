@@ -1,17 +1,29 @@
 <#
 .SYNOPSIS
-
+Resets a git branch to a specific commit.
 
 .DESCRIPTION
-
+Resets a git branch to a specific commit. This is done by first checkout the branch with --force option
+and reset to commit with --hard option. This implies, that all changes on top of the provided commit are 
+definitely lost. 
+This can be dangerous if the branch and commits on top of the provided one are already pushed to some remote repos.
 
 .PARAMETER Branch
+The branch to reset.
+Use GitLib2Sharp for providing an object of type Branch.
+
+.PARAMETER Commit
+The Commit the branch should be reseted to.
+Use GitLib2Sharp for providing an object of type Commit.
+
+.PARAMETER GitUserName
+The username that is used for the resetting action.
+
+.PARAMETER GitUserEmail
+The user email that is used for the resetting action.
 
 .EXAMPLE
-
-
-.EXAMPLE
-
+Reset-Branch -Branch 'object of LibGit2Sharp.Branch' -Commit 'object of LibGit2Sharp.Commit' -GitUserName firstname.lastname -GitUserEmail firstname.lastname@domain.com
 #>
 function Reset-Branch
 {
