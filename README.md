@@ -1,11 +1,10 @@
-# Mr. Bernard Bentley - Bob's machine bootstraper
+# Bristle
 
-When creating a new Bob machine , you can use Bernard to get started.
+Bristle works closely on Git and closes Releases and Hotfixes by merging as described in GitFlow.
 
-Follow this steps to start a new machine:
+### Build
+[![Build](https://teamcity.unic.com/httpAuth/app/rest/builds/buildType:Sitecore_Frameworks_Bob_Bristle_Build/statusIcon)](https://teamcity.unic.com/viewType.html?buildTypeId=Sitecore_Frameworks_Bob_Bristle_Build)
 
-- [Download Bernard](https://git.unic.com/plugins/servlet/archive/projects/SCMBOB/repos/bob-bernard) and extract it
-- Adapt README.md
-- Adapt module name in `generateDocs.ps1`
-- Push to Git, create the TeamCity build configuration, ...
-- Write code, write docs, write tests
+## Documentation
+
+<https://teamcity.unic.com/repository/download/Sitecore_Frameworks_Bob_TheBook_BuildTheBook/.lastSuccessful/Bristle/README.html>
