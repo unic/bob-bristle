@@ -23,7 +23,7 @@ The username that is used for the resetting action.
 The user email that is used for the resetting action.
 
 .EXAMPLE
-Reset-Branch -Branch <object of LibGit2Sharp.Branch> -Commit <object of LibGit2Sharp.Commit> -GitUserName firstname.lastname -GitUserEmail firstname.lastname@domain.com
+Reset-Branch -Branch 'object of LibGit2Sharp.Branch' -Commit 'object of LibGit2Sharp.Commit' -GitUserName firstname.lastname -GitUserEmail firstname.lastname@domain.com
 #>
 function Reset-Branch
 {
