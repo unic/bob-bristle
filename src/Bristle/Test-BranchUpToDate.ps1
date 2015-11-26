@@ -11,7 +11,7 @@ The git branch to analyze.
 Use LibGit2Sharp to provide an object of type Branch.
 
 .EXAMPLE
-Test-BranchUpToDate -Branch <object of LibGit2Sharp.Branch>
+Test-BranchUpToDate -Branch 'object of LibGit2Sharp.Branch'
 #>
 function Test-BranchUpToDate
 {
