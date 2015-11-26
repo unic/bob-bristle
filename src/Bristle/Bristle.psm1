@@ -20,4 +20,3 @@ Export-ModuleMember -Function * -Alias *
 
 $VerbosePreference = "Continue"
 [System.Reflection.Assembly]::LoadFrom((ResolvePath "LibGit2Sharp" "lib\net40\LibGit2Sharp.dll"))
-[System.Reflection.Assembly]::LoadFrom((ResolvePath "GitVersion.CommandLine" "tools\GitVersion.exe"))

@@ -1,17 +1,38 @@
 <#
 .SYNOPSIS
-
+Closes a release or hotfix by merging as described in GitFlow.
 
 .DESCRIPTION
+Merges the release or hotfix branch to the master and develop branch and tags the master branch with 
+the version information.
+Preconditions are:
+- The current branch is a release or hotfix branch and the Head is not detached.
+- There exists a develop branch (otherwise the repo is not following GitFlow).
+- On no involved branches are local modifications and all are up to date.
+- All involved branches have a remote branch on an origin repository.
+- The Version does not exists yet as tag.
+- the Version follows SemVer.
+In all other cases, all possibly happend actions are reverted and nothing is pushed to the remote
+origin repository.
 
+.PARAMETER $GitUserName
+The username that is used for the git actions.
 
-.PARAMETER Branch
+.PARAMETER $GitUserEmail
+The user email that is used for the git actions.
+
+.PARAMETER $GitPassword
+The users password used for the git actions. 
+
+.PARAMETER $Version
+Optionally a version in a SemVer format.
+If not provided, the version is extracted from the current branch name.
 
 .EXAMPLE
-
+Invoke-FinishRelease -GitUserName firstname.lastname -GitUserEmail firstname.lastname@domain.com -GitPassword userpassword
 
 .EXAMPLE
-
+Invoke-FinishRelease -GitUserName firstname.lastname -GitUserEmail firstname.lastname@domain.com -GitPassword userpassword -Version 2.7.5
 #>
 function Invoke-FinishRelease
 {
