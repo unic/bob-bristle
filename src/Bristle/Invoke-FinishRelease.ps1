@@ -1,10 +1,12 @@
 <#
 .SYNOPSIS
-Closes a release or hotfix by merging as described in GitFlow.
+Finishes a release or hotfix by merging as described in GitFlow.
 
 .DESCRIPTION
 Merges the release or hotfix branch to the master and develop branch and tags the master branch with 
-the version information.
+the version information through branch naming based on conventions supported by GitVersion or (optionally) 
+through a parameter.
+
 Preconditions are:
 - The current branch is a release or hotfix branch and the Head is not detached.
 - There exists a develop branch (otherwise the repo is not following GitFlow).
@@ -16,13 +18,13 @@ In all other cases, all possibly happend actions are reverted and nothing is pus
 origin repository.
 
 .PARAMETER $GitUserName
-The username that is used for the git actions.
+The users name that is used for the Git actions.
 
 .PARAMETER $GitUserEmail
-The user email that is used for the git actions.
+The users email that is used for the Git actions.
 
 .PARAMETER $GitPassword
-The users password used for the git actions. 
+The users password used for the Git actions. 
 
 .PARAMETER $Version
 Optionally a version in a SemVer format.
@@ -120,17 +122,17 @@ function Invoke-FinishRelease
         $masterBranch = $repo.Checkout("master", $checkoutOptions, $null)
         
         if (-not (Test-BranchUpToDate -Branch $masterBranch)) {
-            Throw "Branch is not actual compared to origin. Update your repository first. Nothing was done. (Current Branch: $($masterBranch.Name))"
+            Throw "Branch is not latest commit compared to origin. Update your repository first. Nothing was done. (Current Branch: $($masterBranch.Name))"
         }
 
         Write-Output "   [Action] Merge branch '$currentBranch' to master"
         $latestMasterCommit = $masterBranch.Tip
         $masterMergeResult = $repo.Merge($currentBranch, $signature, $mergeOptions)
         if ($masterMergeResult.Status -eq [LibGit2Sharp.MergeStatus]::Conflicts) {
-            Write-Output "[Status] Conflict during while merging to master"
+            Write-Output "[Status] Merge conflict while merging to master"
             Reset-Branch -Branch $masterBranch -Commit $latestMasterCommit -GitUserName $GitUserName -GitUserEmail $GitUserEmail
             
-            throw "Error during master merge: Conflict occured. Merge was reseted."
+            throw "Error during master merge: Conflict occured. Merge reset."
         }
         
         $masterMergeCommit = $masterMergeResult.Commit
@@ -149,7 +151,7 @@ function Invoke-FinishRelease
             Write-Output "   [Reset Action] Remove Tag '$($releaseTag.Name)'"
             $repo.Tags.Remove($releaseTag)
            
-            Throw "Branch is not actual compared to origin. Update your repository first. Merges were reseted. (Current Branch: $($developBranch.Name))"
+            Throw "Branch is not actual compared to origin. Update your repository first. Merges reset. (Current Branch: $($developBranch.Name))"
         }
 
         Write-Output "   [Action] Merge branch '$currentBranch' to develop"
@@ -163,7 +165,7 @@ function Invoke-FinishRelease
             Write-Output "   [Reset Action] Remove Tag '$($releaseTag.Name)'"
             $repo.Tags.Remove($releaseTag)
             
-            throw "Error during develop merge: Conflict occured. Merges were reseted."
+            throw "Error during develop merge: Conflict occured. Merges reset."
         }
         
         # Push to origin
@@ -185,7 +187,6 @@ function Invoke-FinishRelease
         $remoteCurrentBranch = $repo.Branches | where { $_.Name -eq "origin/$($currentBranch.Name)" } 
         
         Write-Output "   [Action] Remove remote branch '$($remoteCurrentBranch.Name)' from repository"
-        #$repo.Branches.Remove($remoteCurrentBranch)
         $repo.Network.Push($remoteOrigin, ":$($currentBranch.CanonicalName)", $pushOptions, $signature)
     }
 }
