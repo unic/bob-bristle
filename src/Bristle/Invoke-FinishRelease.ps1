@@ -91,6 +91,7 @@ function Invoke-FinishRelease
         }
         
         # Get and analyze provided versions
+        # TODO: refactor to separate function and add some tests on the version parsing.
         $releaseVersion = $Version
         if ($Version -eq $null -or $Version -eq "") {
             $currentBranchVersion = $currentBranch.Name.Substring($currentBranch.Name.LastIndexOf("/") + 1)
