@@ -8,14 +8,13 @@ the version information based on the branch naming convention <major>.<minor>.<p
 through a parameter with the same SemVer convention.
 
 Preconditions are:
-- The current branch is a release or hotfix branch and the Head is not detached.
-- There exists a develop branch (otherwise the repo is not following GitFlow).
-- On no involved branches are local modifications and all are up to date.
-- All involved branches have a remote branch on an origin repository.
-- The Version does not exists yet as tag.
-- the Version follows SemVer.
-In all other cases, all possibly happend actions are reverted and nothing is pushed to the remote
-origin repository.
+* Work is only possible in the root of a Git repository. There is no possibility to provide one, you must sit on it.
+* The current branch is a release or hotfix branch and the Head is not detached.
+* A develop branch must exist (otherwise the repo is not following GitFlow).
+* On no involved branches are local modifications and all are up to date.
+* All involved branches have a remote branch on the origin.
+* The version does not exist as a tag, yet.
+* The version follows SemVer.
 
 .PARAMETER $GitUserName
 The users name that is used for the Git actions.
