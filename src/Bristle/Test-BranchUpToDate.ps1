@@ -35,7 +35,6 @@ function Test-BranchUpToDate
         if ($statusEntry.Added.Count -ne 0 -or
                     $statusEntry.Missing.Count -ne 0 -or
                     $statusEntry.RenamedInIndex.Count -ne 0 -or
-                    $statusEntry.Ignored.Count -ne 0 -or
                     $statusEntry.Modified.Count -ne 0 -or
                     $statusEntry.RenamedInWorkDir.Count -ne 0 -or
                     $statusEntry.Removed.Count -ne 0 -or
