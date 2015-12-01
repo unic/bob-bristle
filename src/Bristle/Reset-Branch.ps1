@@ -1,26 +1,26 @@
 <#
 .SYNOPSIS
-Resets a git branch to a specific commit.
+Resets a Git branch to a specific commit.
 
 .DESCRIPTION
-Resets a git branch to a specific commit. This is done by first checkout the branch with --force option
+Resets a Git branch to a specific commit. This is done by checking out the branch with --force option first
 and reset to commit with --hard option. This implies, that all changes on top of the provided commit are 
 definitely lost. 
 This can be dangerous if the branch and commits on top of the provided one are already pushed to some remote repos.
 
 .PARAMETER Branch
 The branch to reset.
-Use GitLib2Sharp for providing an object of type Branch.
+Use GitLib2Sharp to provide an object of type Branch.
 
 .PARAMETER Commit
-The Commit the branch should be reseted to.
-Use GitLib2Sharp for providing an object of type Commit.
+The commit the branch should be reset to.
+Use GitLib2Sharp to provide an object of type Commit.
 
 .PARAMETER GitUserName
-The username that is used for the resetting action.
+The users name that is used to reset the branch.
 
 .PARAMETER GitUserEmail
-The user email that is used for the resetting action.
+The users email that is used to reset the branch.
 
 .EXAMPLE
 Reset-Branch -Branch 'object of LibGit2Sharp.Branch' -Commit 'object of LibGit2Sharp.Commit' -GitUserName firstname.lastname -GitUserEmail firstname.lastname@domain.com
@@ -40,7 +40,7 @@ function Reset-Branch
     )
     Process
     {
-        # Options used during git operations
+        # Options used during Git operations
         $checkoutOptions = New-Object LibGit2Sharp.CheckoutOptions
         $checkoutOptions.CheckoutModifiers = [LibGit2Sharp.CheckoutModifiers]::Force
         $signature = New-Object LibGit2Sharp.Signature($GitUserName, $GitUserEmail, [DateTimeOffset]::Now)
