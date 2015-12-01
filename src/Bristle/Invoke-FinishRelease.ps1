@@ -184,9 +184,7 @@ function Invoke-FinishRelease
         Write-Output "   [Action] Remove branch '$($currentBranch.Name)' from repository"
         $repo.Branches.Remove($currentBranch)
 
-        $remoteCurrentBranch = $repo.Branches | where { $_.Name -eq "origin/$($currentBranch.Name)" }
-
-        Write-Output "   [Action] Remove remote branch '$($remoteCurrentBranch.Name)' from repository"
+        Write-Output "   [Action] Remove remote branch 'origin/$($currentBranch.Name)' from repository"
         $repo.Network.Push($remoteOrigin, ":$($currentBranch.CanonicalName)", $pushOptions, $signature)
     }
 }
