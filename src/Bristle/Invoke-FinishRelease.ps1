@@ -75,7 +75,7 @@ function Invoke-FinishRelease
             Throw "Current Head is not pointing to a specific branch"
         }
 
-        if (($repo.Branches | where { $_.Name -eq "develop" }) -eq $null) {
+        if (($repo.Branches | where { $_.Name.EndsWith("develop") }) -eq $null) {
             Throw "There is no develop branch. This repository seems not to follow GitFlow."
         }
 
