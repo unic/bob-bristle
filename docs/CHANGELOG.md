@@ -1,8 +1,13 @@
 # Changelog
 
+## 2.0
+
+* Initial release on GH
+* Support for Gitbook 3
+
 ## 1.0.2
 
-* improve develop branch detection in `Invoke-FinishRlease`
+* Improve develop branch detection in `Invoke-FinishRlease`
 
 ## 1.0.1
 
