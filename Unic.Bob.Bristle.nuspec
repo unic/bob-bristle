@@ -6,7 +6,7 @@
     <version>$VERSION$</version>
     <owners>Unic AG</owners>
     <iconUrl>https://github.com/unic/unic/raw/master/unic_nuget.png</iconUrl>
-    <projectUrl>https://github.com/unic/bob-lofty</projectUrl>
+    <projectUrl>https://github.com/unic/bob-bristle</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Bristle finishes releases or hotfixes.</description>
   </metadata>
