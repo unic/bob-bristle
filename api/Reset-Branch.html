@@ -1,0 +1,437 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Reset-Branch · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-unic/unic.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ResolvePath.html" />
+    
+    
+    <link rel="prev" href="Invoke-FinishRelease.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Bristle - API
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="Invoke-FinishRelease.html">
+            
+                <a href="Invoke-FinishRelease.html">
+            
+                    
+                    Invoke-FinishRelease
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2" data-path="Reset-Branch.html">
+            
+                <a href="Reset-Branch.html">
+            
+                    
+                    Reset-Branch
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="ResolvePath.html">
+            
+                <a href="ResolvePath.html">
+            
+                    
+                    ResolvePath
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="Test-BranchUpToDate.html">
+            
+                <a href="Test-BranchUpToDate.html">
+            
+                    
+                    Test-BranchUpToDate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="Test-ReleaseHotfixBranch.html">
+            
+                <a href="Test-ReleaseHotfixBranch.html">
+            
+                    
+                    Test-ReleaseHotfixBranch
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../CHANGELOG.html">
+            
+                <a href="../CHANGELOG.html">
+            
+                    
+                    Changelog
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Reset-Branch</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="reset-branch">Reset-Branch</h1>
+<p>Resets a Git branch to a specific commit.</p>
+<h2 id="syntax">Syntax</h2>
+<pre><code>Reset-Branch [-Branch] &lt;Branch&gt; [-Commit] &lt;Commit&gt; [-GitUserName] &lt;String&gt; [-GitUserEmail] &lt;String&gt; [&lt;CommonParameters&gt;]
+</code></pre><h2 id="description">Description</h2>
+<p>Resets a Git branch to a specific commit. This is done by checking out the branch with --force option first
+and reset to commit with --hard option. This implies, that all changes on top of the provided commit are 
+definitely lost. 
+This can be dangerous if the branch and commits on top of the provided one are already pushed to some remote repos.</p>
+<h2 id="parameters">Parameters</h2>
+<pre><code>-Branch &lt;Branch&gt;
+</code></pre><p><em>The branch to reset.
+Use GitLib2Sharp to provide an object of type Branch.</em></p>
+<table>
+<thead>
+<tr>
+<th>Position</th>
+<th>Required</th>
+<th>Default value</th>
+<th>Accept pipeline input</th>
+<th>Accept wildchard characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>true</td>
+<td></td>
+<td>false</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<pre><code>-Commit &lt;Commit&gt;
+</code></pre><p><em>The commit the branch should be reset to.
+Use GitLib2Sharp to provide an object of type Commit.</em></p>
+<table>
+<thead>
+<tr>
+<th>Position</th>
+<th>Required</th>
+<th>Default value</th>
+<th>Accept pipeline input</th>
+<th>Accept wildchard characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>true</td>
+<td></td>
+<td>false</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<pre><code>-GitUserName &lt;String&gt;
+</code></pre><p><em>The users name that is used to reset the branch.</em></p>
+<table>
+<thead>
+<tr>
+<th>Position</th>
+<th>Required</th>
+<th>Default value</th>
+<th>Accept pipeline input</th>
+<th>Accept wildchard characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3</td>
+<td>true</td>
+<td></td>
+<td>false</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<pre><code>-GitUserEmail &lt;String&gt;
+</code></pre><p><em>The users email that is used to reset the branch.</em></p>
+<table>
+<thead>
+<tr>
+<th>Position</th>
+<th>Required</th>
+<th>Default value</th>
+<th>Accept pipeline input</th>
+<th>Accept wildchard characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4</td>
+<td>true</td>
+<td></td>
+<td>false</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="examples">Examples</h2>
+<h3 id="--------------------------example-1---------------------------">-------------------------- EXAMPLE 1 --------------------------</h3>
+<pre><code>Reset-Branch -Branch &apos;object of LibGit2Sharp.Branch&apos; -Commit &apos;object of LibGit2Sharp.Commit&apos; -GitUserName firstname.lastname -GitUserEmail firstname.lastname@domain.com
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Invoke-FinishRelease.html" class="navigation navigation-prev " aria-label="Previous page: Invoke-FinishRelease">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ResolvePath.html" class="navigation navigation-next " aria-label="Next page: ResolvePath">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Reset-Branch","level":"1.2.2","depth":2,"next":{"title":"ResolvePath","level":"1.2.3","depth":2,"path":"api/ResolvePath.md","ref":"api/ResolvePath.md","articles":[]},"previous":{"title":"Invoke-FinishRelease","level":"1.2.1","depth":2,"path":"api/Invoke-FinishRelease.md","ref":"api/Invoke-FinishRelease.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-unic@git+https://github.com/unic/gitbook-plugin-theme-unic.git"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":[]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-unic":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"links":{"sharing":{"all":false}},"gitbook":"3.2.3"},"file":{"path":"api/Reset-Branch.md","mtime":"2017-11-23T14:14:28.364Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2017-11-23T14:15:46.567Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
