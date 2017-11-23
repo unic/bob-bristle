@@ -1,4 +1,5 @@
-<div class="chapterlogo">![Bristle](Bristle.jpg)</div>
+<div class="chapterlogo"><img src="./Bristle.jpg" /></div>
+
 # Bristle
 
 Bristle finishes releases and hotfixes by merging them according to GitFlow and pushes the result back to the origin.
@@ -11,11 +12,11 @@ Bristle is thought to be used on Teamcity, but is designed to do its proper work
 Git-repository.
 
 ## Preconditions
-In order to let Bristle do its cleanup stuff after all other members of the Bob-crew, you should be familiar
-with Git repositories, the GitFlow workflow and SemVer specification.
 
-Bristle checks a lot on consistency and is not willing to work if only one little thing could be wrong. All these things
-need to be fullfilled:
+In order to let Bristle do its cleanup stuff after all other members of the Bob-crew, you should be familiar with Git repositories, the GitFlow workflow and SemVer specification.
+
+Bristle checks a lot on consistency and is not willing to work if only one little thing could be wrong. All these things need to be fullfilled:
+
 * Work is only possible in the root of a Git repository. There is no possibility to provide one, you must sit on it.
 * The current branch is a release or hotfix branch and the Head is not detached.
 * A develop branch must exist (otherwise the repo is not following GitFlow).
